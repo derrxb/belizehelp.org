@@ -1,41 +1,16 @@
-# Welcome to Remix!
+# Welcome to Belize Help!
 
-- [Remix Docs](https://remix.run/docs)
+BelizeHelp is a service Belizeans use to discover and help other Belizeans in need. With the advent of the pandemic, times are tough and Belizeans are facing a lot of unforeseen difficulties. We're aiming to help you find verified Belizeans in need!
 
-## Fly Setup
+## How it works
 
-1. [Install Fly](https://fly.io/docs/getting-started/installing-flyctl/)
+1. Create a request for donations and specify the things you need.
+2. Belizeans see your donation requests and can decide to help you through your difficult time.
+3. Connect with each other to figure out delivery of the donated items.
 
-2. Sign up and log in to Fly
+## Team
 
-   ```sh
-   flyctl auth signup
-   ```
+This app is built and maintained by the following users:
 
-3. Setup Fly. It might ask if you want to deploy, say no since you haven't built the app yet.
-
-   ```sh
-   flyctl launch
-   ```
-
-## Development
-
-From your terminal:
-
-```sh
-npm run dev
-```
-
-This starts your app in development mode, rebuilding assets on file changes.
-
-## Deployment
-
-If you've followed the setup instructions already, all you need to do is run this:
-
-```sh
-npm run deploy
-```
-
-You can run `flyctl info` to get the url and ip address of your server.
-
-Check out the [fly docs](https://fly.io/docs/getting-started/node/) for more information.
+- [Me (Derrick Bol - @derrxb) - Code](https://github.com/derrxb)
+- [Cindy Yuen - UX/UI](https://github.com/cindyuen)
