@@ -12,5 +12,5 @@ BelizeHelp is a service Belizeans use to discover and help other Belizeans in ne
 
 This app is built and maintained by the following users:
 
-- [Me (Derrick Bol - @derrxb) - Code](https://github.com/derrxb)
-- [Cindy Yuen - UX/UI](https://github.com/cindyuen)
+- [Me (Derrick Bol - @derrxb) - Code 👨‍💻](https://github.com/derrxb)
+- [Cindy Yuen - UX/UI Design 💅🏽](https://github.com/cindyuen)
