@@ -161,7 +161,13 @@ function Layout({
             <Link to="/about">About</Link>
           </li>
 
-          {loaderData?.isAuthenticated ? null : (
+          {loaderData?.isAuthenticated ? (
+            <>
+              <li className="py-4 px-6 hover:underline">
+                <Link to="/posts/new">Tell your Story</Link>
+              </li>
+            </>
+          ) : (
             <div>
               <li className="py-4 px-6 hover:underline">
                 <Link to="/login">Login</Link>

@@ -24,8 +24,6 @@ export let loader: LoaderFunction = async ({ request }) => {
     successRedirect: "/",
   });
 
-  console.log(user);
-
   return null;
 };
 
