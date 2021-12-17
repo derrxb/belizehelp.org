@@ -3,22 +3,47 @@ import {
   Links,
   LinksFunction,
   LiveReload,
+  LoaderFunction,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
   useCatch,
+  useLoaderData,
 } from "remix";
 import globalStylesUrl from "~/styles/app.css";
+import User from "../domain/helpbelize/entities/user";
+import { getSession } from "./session.server";
 
 export let links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: globalStylesUrl }];
 };
 
+export let loader: LoaderFunction = async ({ request }) => {
+  let user;
+  let session = await getSession(request.headers.get("Cookie"));
+
+  try {
+    user = new User(session.get("user"));
+  } catch (e) {}
+
+  return {
+    isAuthenticated: !!user,
+    user: user?.get(),
+  };
+};
+
+type UserSession = {
+  isAuthenticated: boolean;
+  user: { name: string; email: string; id: string };
+};
+
 export default function App() {
+  const data = useLoaderData() as UserSession;
+
   return (
     <Document>
-      <Layout>
+      <Layout loaderData={data}>
         <Outlet />
       </Layout>
     </Document>
@@ -27,6 +52,7 @@ export default function App() {
 
 export function ErrorBoundary({ error }: { error: Error }) {
   console.error(error);
+
   return (
     <Document title="Error!">
       <Layout>
@@ -112,7 +138,13 @@ function Document({
   );
 }
 
-function Layout({ children }: { children: React.ReactNode }) {
+function Layout({
+  children,
+  loaderData,
+}: {
+  children: React.ReactNode;
+  loaderData?: UserSession;
+}) {
   return (
     <>
       <nav className="flex flex-row justify-between mx-20 py-4 items-center">
@@ -129,18 +161,22 @@ function Layout({ children }: { children: React.ReactNode }) {
             <Link to="/about">About</Link>
           </li>
 
-          <li className="py-4 px-6 hover:underline">
-            <Link to="/login">Login</Link>
-          </li>
+          {loaderData?.isAuthenticated ? null : (
+            <div>
+              <li className="py-4 px-6 hover:underline">
+                <Link to="/login">Login</Link>
+              </li>
 
-          <li className="px-4">
-            <Link
-              to="/register"
-              className="bg-sky-600 font-bold hover:bg-sky-400 px-6 py-3 rounded-md shadow-md text-white hover:text-sky-900"
-            >
-              Get Started
-            </Link>
-          </li>
+              <li className="px-4">
+                <Link
+                  to="/register"
+                  className="bg-sky-600 font-bold hover:bg-sky-400 px-6 py-3 rounded-md shadow-md text-white hover:text-sky-900"
+                >
+                  Get Started
+                </Link>
+              </li>
+            </div>
+          )}
         </ul>
       </nav>
 
