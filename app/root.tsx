@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import {
   Link,
   Links,
@@ -10,6 +11,7 @@ import {
   ScrollRestoration,
   useCatch,
   useLoaderData,
+  useLocation,
 } from "remix";
 import globalStylesUrl from "~/styles/app.css";
 import User from "../domain/helpbelize/entities/user";
@@ -126,7 +128,7 @@ function Document({
         <Meta />
         <Links />
       </head>
-      <body className="h-full w-full flex flex-col">
+      <body className="h-full w-full flex flex-col bg-white dark:bg-black">
         {children}
 
         <ScrollRestoration />
@@ -138,6 +140,8 @@ function Document({
   );
 }
 
+const shouldFixNav = ["/login", "/register"];
+
 function Layout({
   children,
   loaderData,
@@ -145,9 +149,19 @@ function Layout({
   children: React.ReactNode;
   loaderData?: UserSession;
 }) {
+  const location = useLocation();
+  const isFixedNav = shouldFixNav.includes(location.pathname);
+
   return (
     <>
-      <nav className="flex flex-row justify-between px-20 py-4 w-full text-gray-900 dark:text-gray-50 items-center fixed z-30 dark:bg-black dark:bg-opacity-5">
+      <nav
+        className={clsx(
+          "flex flex-row justify-between px-20 py-4 w-full text-gray-900 dark:text-gray-50 items-center z-30 ",
+          {
+            "fixed dark:bg-black dark:bg-opacity-5": isFixedNav,
+          }
+        )}
+      >
         <Link to="/" className="font-extrabold text-3xl">
           Belize Help
         </Link>
@@ -156,7 +170,7 @@ function Layout({
           <li className="py-4 px-6">
             <Link
               to="/about"
-              className="font-bold dark:text-white hover:text-pink-500 hover:underline"
+              className="font-bold dark:text-white hover:text-pink-600"
             >
               About
             </Link>
@@ -165,7 +179,7 @@ function Layout({
           <li className="py-4 px-6">
             <Link
               to="/how-it-works"
-              className="font-bold dark:text-white hover:text-pink-500 hover:underline"
+              className="font-bold dark:text-white hover:text-pink-600"
             >
               How it works
             </Link>
@@ -174,7 +188,7 @@ function Layout({
           <li className="py-4 px-6">
             <Link
               to="/how-it-works"
-              className="font-bold dark:text-white hover:text-pink-500 hover:underline"
+              className="font-bold dark:text-white hover:text-pink-600"
             >
               News & Stories
             </Link>
@@ -185,7 +199,7 @@ function Layout({
               <li className="py-4 px-6">
                 <Link
                   to="/posts/new"
-                  className="font-bold dark:text-white hover:text-pink-500 hover:underline"
+                  className="font-bold dark:text-white hover:text-pink-600"
                 >
                   Tell your Story
                 </Link>
@@ -196,7 +210,7 @@ function Layout({
               <li className="py-4 px-6">
                 <Link
                   to="/login"
-                  className="font-bold dark:text-white hover:text-pink-500 hover:underline"
+                  className="font-bold dark:text-white hover:text-pink-600"
                 >
                   Login
                 </Link>

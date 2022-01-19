@@ -39,9 +39,9 @@ export let loader: LoaderFunction = async ({ request }) => {
 
 export default function Login() {
   return (
-    <div className="self-center rounded p-4 mt-[5%]">
-      <h1 className="text-3xl font-extrabold text-gray-800">
-        Create your Account
+    <div className="flex flex-col my-auto mx-auto text-center">
+      <h1 className="text-gray-900 dark:text-gray-50 text-4xl font-bold mb-4">
+        Create your account
       </h1>
 
       <Form
@@ -51,40 +51,46 @@ export default function Login() {
         autoComplete="off"
       >
         <div className="flex flex-col pb-4">
-          <label htmlFor="email" className="text-gray-800 text-lg pb-2">
+          <label
+            htmlFor="email"
+            className="text-gray-800 dark:text-gray-50 text-lg pb-2 sr-only"
+          >
             Email
           </label>
 
           <input
-            name="email"
+            name="username"
             required
-            autoComplete="off"
             id="email"
             type="email"
-            className="font-sans rounded-md block text leading-5 w-full py-3 px-3 border-2 border-sky-600 text-gray-500 shadow-sm focus:outline-none focus:ring focus:ring-sky-200 focus:border-sky-500"
+            placeholder="Email"
+            className="block px-4 py-2 border-b-2 text-xl focus:outline-none focus:border-b-slate-200 bg-white dark:bg-black dark:border-b-slate-50 dark:text-gray-50"
           />
         </div>
 
-        <div className="flex flex-col pb-6">
-          <label htmlFor="password" className="text-gray-800 text-lg pb-2">
+        <div className="flex flex-col pb-6 mb-4">
+          <label
+            htmlFor="password"
+            className="text-gray-800 dark:text-gray-50 text-lg pb-2 sr-only"
+          >
             Password
           </label>
 
           <input
             name="password"
             required
-            autoComplete="off"
             type="password"
             id="password"
-            className="font-sans rounded-md block text leading-5 w-full py-3 px-3 border-2 border-sky-600 text-gray-500 shadow-sm focus:outline-none focus:ring focus:ring-sky-200 focus:border-sky-500"
+            placeholder="Password"
+            className="block px-4 py-2 border-b-2 text-xl focus:outline-none focus:border-b-slate-200 bg-white dark:bg-black dark:border-b-slate-50 dark:text-gray-50"
           />
         </div>
 
         <button
           type="submit"
-          className="w-full text-white border-2 rounded-md bg-sky-500 px-3 py-2 text-xl border-sky-500 focus:ring focus:ring-sky-200 focus:border-sky-500"
+          className="w-full px-4 py-2 text-xl dark:bg-gray-50 dark:text-gray-900 border-2 rounded-md focus:ring focus:ring-pink-100 focus:border-pink-200"
         >
-          Register Account
+          Register
         </button>
       </Form>
     </div>
