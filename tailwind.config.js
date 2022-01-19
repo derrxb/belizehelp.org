@@ -7,6 +7,7 @@ module.exports = {
     backgroundColor: (theme) => ({
       ...theme("colors"),
       black: "#0D1210",
+      "dark-gray": "#181818",
     }),
     extend: {
       spacing: {
