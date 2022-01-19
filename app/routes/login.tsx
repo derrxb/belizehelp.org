@@ -1,5 +1,6 @@
 import { ActionFunction, Form, LoaderFunction, MetaFunction } from "remix";
 import { authenticator } from "~/auth.server";
+import welcomeVideo from "../../public/videos/welcome.mp4";
 
 export const meta: MetaFunction = () => {
   return {
@@ -29,49 +30,85 @@ export let loader: LoaderFunction = async ({ request }) => {
 
 export default function Login() {
   return (
-    <div className="self-center rounded p-4 border-2 border-gray-200 mt-[5%]">
-      <h1 className="text-2xl font-extrabold">Sign into your Account</h1>
+    <div className="w-full h-full dark:bg-black grid grid-cols-2 gap-2">
+      <div className="flex">
+        <div className="flex flex-col my-auto mx-auto text-center">
+          <h1 className="text-gray-900 dark:text-gray-50 text-4xl font-bold mb-4">
+            Sign in to your account
+          </h1>
 
-      <Form
-        action="/login"
-        method="post"
-        className="py-4 self-center w-[480px]"
-      >
-        <div className="flex flex-col pb-4">
-          <label htmlFor="email" className="text-gray-800 text-lg pb-2">
-            Email
-          </label>
+          <Form
+            action="/login"
+            method="post"
+            className="flex flex-col py-4 self-center w-[480px]"
+          >
+            <div className="flex flex-col pb-4">
+              <label
+                htmlFor="email"
+                className="text-gray-800 dark:text-gray-50 text-lg pb-2 sr-only"
+              >
+                Email
+              </label>
 
-          <input
-            name="username"
-            required
-            id="email"
-            type="email"
-            className="font-sans rounded-md block text leading-5 w-full py-3 px-3 border-2 border-sky-600 text-gray-500 shadow-sm focus:outline-none focus:ring focus:ring-sky-200 focus:border-sky-500"
-          />
+              <input
+                name="username"
+                required
+                id="email"
+                type="email"
+                placeholder="Email"
+                className="block px-4 py-2 border-b-2 text-xl focus:outline-none focus:border-b-slate-200 bg-white dark:bg-black dark:border-b-slate-50 dark:text-gray-50"
+              />
+            </div>
+
+            <div className="flex flex-col pb-6 mb-4">
+              <label
+                htmlFor="password"
+                className="text-gray-800 dark:text-gray-50 text-lg pb-2 sr-only"
+              >
+                Password
+              </label>
+
+              <input
+                name="password"
+                required
+                type="password"
+                id="password"
+                placeholder="Password"
+                className="block px-4 py-2 border-b-2 text-xl focus:outline-none focus:border-b-slate-200 bg-white dark:bg-black dark:border-b-slate-50 dark:text-gray-50"
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="w-full px-4 py-2 text-xl dark:bg-gray-50 dark:text-gray-900 border-2 rounded-md focus:ring focus:ring-pink-100 focus:border-pink-200"
+            >
+              Continue
+            </button>
+
+            <span className="text-gray-900 dark:text-gray-50 py-4">Or</span>
+
+            <button
+              type="submit"
+              className="w-full px-4 py-2 text-xl dark:bg-gray-50 dark:text-gray-900 border-2 rounded-md focus:ring focus:ring-pink-100 focus:border-pink-200 mb-4"
+            >
+              Sign in with Facebook
+            </button>
+          </Form>
         </div>
+      </div>
 
-        <div className="flex flex-col pb-6">
-          <label htmlFor="password" className="text-gray-800 text-lg pb-2">
-            Password
-          </label>
-
-          <input
-            name="password"
-            required
-            type="password"
-            id="password"
-            className="font-sans rounded-md block text leading-5 w-full py-3 px-3 border-2 border-sky-600 text-gray-500 shadow-sm focus:outline-none focus:ring focus:ring-sky-200 focus:border-sky-500"
-          />
-        </div>
-
-        <button
-          type="submit"
-          className="w-full text-white border-2 rounded-md bg-sky-500 px-3 py-2 text-xl border-sky-500 focus:ring focus:ring-sky-200 focus:border-sky-500"
+      <div className="overflow-hidden">
+        <video
+          autoPlay
+          crossOrigin="anonymous"
+          playsInline
+          preload="auto"
+          className="w-full overflow-hidden aspect-[16 / 9]"
         >
-          Continue
-        </button>
-      </Form>
+          <source src={welcomeVideo} type="video/mp4" />
+          Sorry, your browser doesn't support embedded videos.
+        </video>
+      </div>
     </div>
   );
 }

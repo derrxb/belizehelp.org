@@ -51,7 +51,7 @@ export default function App() {
 }
 
 export function ErrorBoundary({ error }: { error: Error }) {
-  console.error(error);
+  console.error(JSON.stringify(error));
 
   return (
     <Document title="Error!">
@@ -113,7 +113,7 @@ function Document({
   title?: string;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="h-full w-full flex flex-col">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -126,7 +126,7 @@ function Document({
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="h-full w-full flex flex-col">
         {children}
 
         <ScrollRestoration />
@@ -147,38 +147,67 @@ function Layout({
 }) {
   return (
     <>
-      <nav className="flex flex-row justify-between mx-20 py-4 items-center">
+      <nav className="flex flex-row justify-between px-20 py-4 w-full text-gray-900 dark:text-gray-50 items-center fixed z-30 dark:bg-black dark:bg-opacity-5">
         <Link to="/" className="font-extrabold text-3xl">
-          Help Belize
+          Belize Help
         </Link>
 
         <ul className="flex flex-row items-center">
-          <li className="py-4 px-6 hover:underline">
-            <Link to="/how-it-works">How it works</Link>
+          <li className="py-4 px-6">
+            <Link
+              to="/about"
+              className="font-bold dark:text-white hover:text-pink-500 hover:underline"
+            >
+              About
+            </Link>
           </li>
 
-          <li className="py-4 px-6 hover:underline">
-            <Link to="/about">About</Link>
+          <li className="py-4 px-6">
+            <Link
+              to="/how-it-works"
+              className="font-bold dark:text-white hover:text-pink-500 hover:underline"
+            >
+              How it works
+            </Link>
+          </li>
+
+          <li className="py-4 px-6">
+            <Link
+              to="/how-it-works"
+              className="font-bold dark:text-white hover:text-pink-500 hover:underline"
+            >
+              News & Stories
+            </Link>
           </li>
 
           {loaderData?.isAuthenticated ? (
             <>
-              <li className="py-4 px-6 hover:underline">
-                <Link to="/posts/new">Tell your Story</Link>
+              <li className="py-4 px-6">
+                <Link
+                  to="/posts/new"
+                  className="font-bold dark:text-white hover:text-pink-500 hover:underline"
+                >
+                  Tell your Story
+                </Link>
               </li>
             </>
           ) : (
-            <div>
-              <li className="py-4 px-6 hover:underline">
-                <Link to="/login">Login</Link>
+            <div className="flex items-center">
+              <li className="py-4 px-6">
+                <Link
+                  to="/login"
+                  className="font-bold dark:text-white hover:text-pink-500 hover:underline"
+                >
+                  Login
+                </Link>
               </li>
 
               <li className="px-4">
                 <Link
                   to="/register"
-                  className="bg-sky-600 font-bold hover:bg-sky-400 px-6 py-3 rounded-md shadow-md text-white hover:text-sky-900"
+                  className="bg-pink-600 font-bold hover:bg-pink-400 px-6 py-3 rounded-md text-white hover:text-pink-900"
                 >
-                  Get Started
+                  Register
                 </Link>
               </li>
             </div>
