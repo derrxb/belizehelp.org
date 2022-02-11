@@ -1,0 +1,3 @@
+export const MAIL_CHIMP_CLIENT_KEY = process.env.MAILCHIMP_CLIENT_KEY;
+export const MAIL_CHIMP_CLIENT_SECRET = process.env.MAILCHIMP_CLIENT_SECRET;
+export const MAIL_CHIMP_API_KEY = process.env.MAILCHIMP_API_KEY;
