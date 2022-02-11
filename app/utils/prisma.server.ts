@@ -13,7 +13,7 @@ if (process.env.NODE_ENV === "production") {
   db = new PrismaClient({
     datasources: {
       db: {
-        url: process.env?.DB_PROD_CONNECTION_STRING,
+        url: process.env?.DATABASE_URL,
       },
     },
   });
