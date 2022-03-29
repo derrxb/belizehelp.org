@@ -23,7 +23,7 @@ export default function Newsletter() {
             className="mr-4 w-fit rounded-md border-2 border-white py-4 px-4 text-lg focus:ring-4 focus:ring-indigo-600 md:w-[480px]"
           />
 
-          <button className="w-[120px] rounded-md bg-black px-2 py-4 text-lg text-white md:px-8">
+          <button className="w-[120px] rounded-md bg-black px-2 py-4 text-lg text-white md:w-fit md:px-8">
             Notify me
           </button>
         </div>

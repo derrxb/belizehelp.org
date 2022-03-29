@@ -1,42 +1,22 @@
+const SingleStatistic = ({ name, value }: { name: string; value: string }) => {
+  return (
+    <div className="mx-0 flex w-1/2 flex-col items-center justify-center justify-items-start px-0 py-4 text-center md:mx-4 md:w-fit  md:py-2 xl:px-16">
+      <span className="text-5xl font-bold text-gray-900 dark:text-gray-50">
+        {value}
+      </span>
+      <span className="text-2xl text-gray-500 dark:text-gray-400">{name}</span>
+    </div>
+  );
+};
+
 export default function HomeStats() {
   return (
     <div className="flex w-full justify-center pb-16">
-      <div className="flex flex-wrap items-center md:flex-nowrap">
-        <div className="px:0 mx-0 flex w-1/2 flex-col items-center justify-center justify-items-start py-4 text-center md:mx-4 md:w-fit md:px-20 md:py-2">
-          <span className="text-5xl font-bold text-gray-900 dark:text-gray-50">
-            5+
-          </span>
-          <span className="text-2xl text-gray-500 dark:text-gray-400">
-            Donators
-          </span>
-        </div>
-
-        <div className="px:0 mx-0 flex w-1/2 flex-col items-center justify-center justify-items-start py-4 text-center md:mx-4 md:w-fit md:px-20 md:py-2">
-          <span className="text-5xl font-bold text-gray-900 dark:text-gray-50">
-            500+
-          </span>
-          <span className="text-2xl text-gray-500 dark:text-gray-400">
-            Donations
-          </span>
-        </div>
-
-        <div className="px:0 mx-0 flex w-1/2 flex-col items-center justify-center justify-items-start py-4 text-center md:mx-4 md:w-fit md:px-20 md:py-2">
-          <span className="text-5xl font-bold text-gray-900 dark:text-gray-50">
-            15+
-          </span>
-          <span className="text-2xl text-gray-500 dark:text-gray-400">
-            Seekers
-          </span>
-        </div>
-
-        <div className="px:0 mx-0 flex w-1/2 flex-col items-center justify-center justify-items-start py-4 text-center md:mx-4 md:w-fit md:px-20 md:py-2">
-          <span className="text-5xl font-bold text-gray-900 dark:text-gray-50">
-            10+
-          </span>
-          <span className="text-2xl text-gray-500 dark:text-gray-400">
-            Assisted
-          </span>
-        </div>
+      <div className="flex w-full flex-wrap items-center justify-between md:flex-nowrap">
+        <SingleStatistic name="Donators" value="10+" />
+        <SingleStatistic name="Donations" value="500+" />
+        <SingleStatistic name="Seekers" value="100+" />
+        <SingleStatistic name="Assisted" value="100+" />
       </div>
     </div>
   );

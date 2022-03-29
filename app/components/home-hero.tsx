@@ -38,7 +38,7 @@ export default function HomeHero() {
         <img
           alt="helping others"
           src={connection}
-          className="h-[480px] w-[640px]"
+          className="h-[320px] w-[480px] xl:h-[480px] xl:w-[640px]"
         />
       </div>
     </div>
