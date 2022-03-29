@@ -156,7 +156,7 @@ function Layout({
     <>
       <nav
         className={clsx(
-          "flex flex-row justify-between px-20 py-4 w-full text-gray-900 dark:text-gray-50 items-center z-30 ",
+          "flex flex-row justify-between px-8 md:px-20 py-4 w-full text-gray-900 dark:text-gray-50 items-center z-30 ",
           {
             "fixed dark:bg-black dark:bg-opacity-5": isFixedNav,
           }
@@ -167,7 +167,7 @@ function Layout({
           <h1>Belize Help</h1>
         </Link>
 
-        <ul className="flex flex-row items-center">
+        <ul className="flex-row items-center hidden md:flex">
           <li className="py-4 px-6">
             <Link
               to="/about"

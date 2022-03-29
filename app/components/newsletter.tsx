@@ -20,10 +20,10 @@ export default function Newsletter() {
             id="email"
             name="email"
             placeholder="Email"
-            className="py-4 px-4 w-[480px] border-2 border-white focus:ring-4 focus:ring-indigo-600 text-lg rounded-md mr-4"
+            className="py-4 px-4 w-fit md:w-[480px] border-2 border-white focus:ring-4 focus:ring-indigo-600 text-lg rounded-md mr-4"
           />
 
-          <button className="text-lg px-8 py-4 bg-black text-white rounded-md">
+          <button className="text-lg px-2 md:px-8 py-4 bg-black text-white rounded-md w-[120px]">
             Notify me
           </button>
         </div>

@@ -3,7 +3,7 @@ import Neighborhood from "~/images/neighborhood.svg";
 
 export default function HomeHowToGetSupport() {
   return (
-    <div className="w-full grid grid-cols-2 gap-2 h-[70vh] py-16 mb-16 px-60">
+    <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-2 min-h-[70vh] py-0 md:py-16 mb-16 px-4 md:px-60">
       <div className="flex flex-col justify-center">
         <span className="text-base font-medium text-pink-600 pb-4">
           For Seekers
@@ -42,7 +42,11 @@ export default function HomeHowToGetSupport() {
       </div>
 
       <div className="flex justify-center">
-        <img src={Neighborhood} className="w-[360px] h-[480px]" />
+        <img
+          src={Neighborhood}
+          className="w-[360px] h-[480px]"
+          alt="neighborhood"
+        />
       </div>
     </div>
   );

@@ -3,12 +3,12 @@ import Deliver from "~/images/deliver.svg";
 
 export default function HomeHowToSupport() {
   return (
-    <div className="w-full grid grid-cols-2 gap-2 h-[70vh] py-16 mb-16 px-60">
-      <div className="flex items-center">
-        <img src={Deliver} className="w-[360px] h-[480px]" />
+    <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-2 min-h-[70vh] py-0 md:py-16 mb-16 px-4 md:px-60">
+      <div className="flex items-center order-2 md:order-1">
+        <img src={Deliver} className="w-[360px] h-[480px]" alt="deliver" />
       </div>
 
-      <div className="flex flex-col justify-center">
+      <div className="flex flex-col justify-center order-1 md:order-2">
         <span className="text-base font-medium text-pink-600 pb-4">
           For Donators
         </span>
