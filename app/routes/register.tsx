@@ -39,21 +39,21 @@ export let loader: LoaderFunction = async ({ request }) => {
 
 export default function Login() {
   return (
-    <div className="flex flex-col my-auto mx-auto text-center">
-      <h1 className="text-gray-900 dark:text-gray-50 text-4xl font-bold mb-4">
+    <div className="my-auto mx-auto flex flex-col text-center">
+      <h1 className="mb-4 text-4xl font-bold text-gray-900 dark:text-gray-50">
         Create your account
       </h1>
 
       <Form
         method="post"
         action="/register"
-        className="py-4 self-center w-[480px]"
+        className="w-[480px] self-center py-4"
         autoComplete="off"
       >
         <div className="flex flex-col pb-4">
           <label
             htmlFor="email"
-            className="text-gray-800 dark:text-gray-50 text-lg pb-2 sr-only"
+            className="sr-only pb-2 text-lg text-gray-800 dark:text-gray-50"
           >
             Email
           </label>
@@ -64,14 +64,14 @@ export default function Login() {
             id="email"
             type="email"
             placeholder="Email"
-            className="block px-4 py-2 border-b-2 text-xl focus:outline-none focus:border-b-slate-200 bg-white dark:bg-black dark:border-b-slate-50 dark:text-gray-50"
+            className="block border-b-2 bg-white px-4 py-2 text-xl focus:border-b-slate-200 focus:outline-none dark:border-b-slate-50 dark:bg-black dark:text-gray-50"
           />
         </div>
 
-        <div className="flex flex-col pb-6 mb-4">
+        <div className="mb-4 flex flex-col pb-6">
           <label
             htmlFor="password"
-            className="text-gray-800 dark:text-gray-50 text-lg pb-2 sr-only"
+            className="sr-only pb-2 text-lg text-gray-800 dark:text-gray-50"
           >
             Password
           </label>
@@ -82,13 +82,13 @@ export default function Login() {
             type="password"
             id="password"
             placeholder="Password"
-            className="block px-4 py-2 border-b-2 text-xl focus:outline-none focus:border-b-slate-200 bg-white dark:bg-black dark:border-b-slate-50 dark:text-gray-50"
+            className="block border-b-2 bg-white px-4 py-2 text-xl focus:border-b-slate-200 focus:outline-none dark:border-b-slate-50 dark:bg-black dark:text-gray-50"
           />
         </div>
 
         <button
           type="submit"
-          className="w-full px-4 py-2 text-xl dark:bg-gray-50 dark:text-gray-900 border-2 rounded-md focus:ring focus:ring-pink-100 focus:border-pink-200"
+          className="w-full rounded-md border-2 px-4 py-2 text-xl focus:border-pink-200 focus:ring focus:ring-pink-100 dark:bg-gray-50 dark:text-gray-900"
         >
           Register
         </button>

@@ -8,7 +8,7 @@ const NewPost = () => {
   const [post, setPost] = useState(null);
 
   return (
-    <div className="flex flex-col w-full h-full">
+    <div className="flex h-full w-full flex-col">
       <YourStory onComplete={(value) => setPost(null)} />
     </div>
   );

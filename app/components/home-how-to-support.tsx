@@ -3,20 +3,20 @@ import Deliver from "~/images/deliver.svg";
 
 export default function HomeHowToSupport() {
   return (
-    <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-2 min-h-[70vh] py-0 md:py-16 mb-16 px-4 md:px-60">
-      <div className="flex items-center order-2 md:order-1">
-        <img src={Deliver} className="w-[360px] h-[480px]" alt="deliver" />
+    <div className="mb-16 grid min-h-[70vh] w-full grid-cols-1 gap-2 py-0 px-4 md:grid-cols-2 md:py-16 md:px-60">
+      <div className="order-2 flex items-center md:order-1">
+        <img src={Deliver} className="h-[480px] w-[360px]" alt="deliver" />
       </div>
 
-      <div className="flex flex-col justify-center order-1 md:order-2">
-        <span className="text-base font-medium text-pink-600 pb-4">
+      <div className="order-1 flex flex-col justify-center md:order-2">
+        <span className="pb-4 text-base font-medium text-pink-600">
           For Donators
         </span>
 
-        <h4 className="text-xl font-bold text-gray-900 dark:text-gray-50 pb-4">
+        <h4 className="pb-4 text-xl font-bold text-gray-900 dark:text-gray-50">
           How to support?
         </h4>
-        <div className="text-lg text-gray-900 dark:text-gray-50 pb-4">
+        <div className="pb-4 text-lg text-gray-900 dark:text-gray-50">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
           pariatur eligendi quisquam repellendus suscipit blanditiis maiores
           reiciendis? Animi, cum tenetur perspiciatis aliquid, repellat dolorum
@@ -25,7 +25,7 @@ export default function HomeHowToSupport() {
 
         <Link
           to="/register"
-          className="inline-flex items-center text-lg text-gray-900 dark:text-gray-50 pb-4"
+          className="inline-flex items-center pb-4 text-lg text-gray-900 dark:text-gray-50"
         >
           <span className="mr-2">Get Started</span>
           <svg

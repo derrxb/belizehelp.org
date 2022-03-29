@@ -115,7 +115,7 @@ function Document({
   title?: string;
 }) {
   return (
-    <html lang="en" className="h-full w-full flex flex-col">
+    <html lang="en" className="flex h-full w-full flex-col">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -128,7 +128,7 @@ function Document({
         <Meta />
         <Links />
       </head>
-      <body className="h-full w-full flex flex-col bg-white dark:bg-black">
+      <body className="flex h-full w-full flex-col bg-white dark:bg-black">
         {children}
 
         <ScrollRestoration />
@@ -156,22 +156,22 @@ function Layout({
     <>
       <nav
         className={clsx(
-          "flex flex-row justify-between px-8 md:px-20 py-4 w-full text-gray-900 dark:text-gray-50 items-center z-30 ",
+          "z-30 flex w-full flex-row items-center justify-between px-8 py-4 text-gray-900 dark:text-gray-50 md:px-20 ",
           {
             "fixed dark:bg-black dark:bg-opacity-5": isFixedNav,
           }
         )}
       >
-        <Link to="/" className="font-extrabold text-3xl">
+        <Link to="/" className="text-3xl font-extrabold">
           {/* <img src={logo} /> */}
           <h1>Belize Help</h1>
         </Link>
 
-        <ul className="flex-row items-center hidden md:flex">
+        <ul className="hidden flex-row items-center md:flex">
           <li className="py-4 px-6">
             <Link
               to="/about"
-              className="font-bold dark:text-white hover:text-pink-600"
+              className="font-bold hover:text-pink-600 dark:text-white"
             >
               About
             </Link>
@@ -180,7 +180,7 @@ function Layout({
           <li className="py-4 px-6">
             <Link
               to="/how-it-works"
-              className="font-bold dark:text-white hover:text-pink-600"
+              className="font-bold hover:text-pink-600 dark:text-white"
             >
               How it works
             </Link>
@@ -189,7 +189,7 @@ function Layout({
           <li className="py-4 px-6">
             <Link
               to="/how-it-works"
-              className="font-bold dark:text-white hover:text-pink-600"
+              className="font-bold hover:text-pink-600 dark:text-white"
             >
               News & Stories
             </Link>
@@ -200,7 +200,7 @@ function Layout({
               <li className="py-4 px-6">
                 <Link
                   to="/posts/new"
-                  className="font-bold dark:text-white hover:text-pink-600"
+                  className="font-bold hover:text-pink-600 dark:text-white"
                 >
                   Tell your Story
                 </Link>
@@ -211,7 +211,7 @@ function Layout({
               <li className="py-4 px-6">
                 <Link
                   to="/login"
-                  className="font-bold dark:text-white hover:text-pink-600"
+                  className="font-bold hover:text-pink-600 dark:text-white"
                 >
                   Login
                 </Link>
@@ -220,7 +220,7 @@ function Layout({
               <li className="px-4">
                 <Link
                   to="/register"
-                  className="bg-pink-600 font-bold hover:bg-pink-400 px-6 py-3 rounded-md text-white hover:text-pink-900"
+                  className="rounded-md bg-pink-600 px-6 py-3 font-bold text-white hover:bg-pink-400 hover:text-pink-900"
                 >
                   Register
                 </Link>
@@ -230,7 +230,7 @@ function Layout({
         </ul>
       </nav>
 
-      <main className="flex flex-col w-full h-full">{children}</main>
+      <main className="flex h-full w-full flex-col">{children}</main>
     </>
   );
 }

@@ -3,16 +3,16 @@ import Neighborhood from "~/images/neighborhood.svg";
 
 export default function HomeHowToGetSupport() {
   return (
-    <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-2 min-h-[70vh] py-0 md:py-16 mb-16 px-4 md:px-60">
+    <div className="mb-16 grid min-h-[70vh] w-full grid-cols-1 gap-2 py-0 px-4 md:grid-cols-2 md:py-16 md:px-60">
       <div className="flex flex-col justify-center">
-        <span className="text-base font-medium text-pink-600 pb-4">
+        <span className="pb-4 text-base font-medium text-pink-600">
           For Seekers
         </span>
 
-        <h4 className="text-xl font-bold text-gray-900 dark:text-gray-50 pb-4">
+        <h4 className="pb-4 text-xl font-bold text-gray-900 dark:text-gray-50">
           How to seek help?
         </h4>
-        <div className="text-lg text-gray-900 dark:text-gray-50 pb-4">
+        <div className="pb-4 text-lg text-gray-900 dark:text-gray-50">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
           pariatur eligendi quisquam repellendus suscipit blanditiis maiores
           reiciendis? Animi, cum tenetur perspiciatis aliquid, repellat dolorum
@@ -21,7 +21,7 @@ export default function HomeHowToGetSupport() {
 
         <Link
           to="/register"
-          className="inline-flex items-center text-lg text-gray-900 dark:text-gray-50 pb-4"
+          className="inline-flex items-center pb-4 text-lg text-gray-900 dark:text-gray-50"
         >
           <span className="mr-2">Get Started</span>
           <svg
@@ -44,7 +44,7 @@ export default function HomeHowToGetSupport() {
       <div className="flex justify-center">
         <img
           src={Neighborhood}
-          className="w-[360px] h-[480px]"
+          className="h-[480px] w-[360px]"
           alt="neighborhood"
         />
       </div>

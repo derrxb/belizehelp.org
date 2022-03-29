@@ -7,7 +7,7 @@ import Newsletter from "~/components/newsletter";
 
 export default function Index() {
   return (
-    <div className="px-8 md:px-20 flex flex-col">
+    <div className="flex flex-col px-8 md:px-20">
       <HomeHero />
       <HomeStats />
       <HomeHowWeHelp />
