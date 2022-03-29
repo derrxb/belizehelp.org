@@ -13,7 +13,6 @@ import {
   useLoaderData,
   useLocation,
 } from "remix";
-import logo from "~/images/logo.svg";
 import globalStylesUrl from "~/styles/app.css";
 import User from "../domain/helpbelize/entities/user";
 import { getSession } from "./session.server";
@@ -164,7 +163,8 @@ function Layout({
         )}
       >
         <Link to="/" className="font-extrabold text-3xl">
-          <img src={logo} />
+          {/* <img src={logo} /> */}
+          <h1>Belize Help</h1>
         </Link>
 
         <ul className="flex flex-row items-center">

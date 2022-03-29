@@ -1,37 +1,48 @@
 {
   "private": true,
-  "name": "remix-app-template",
+  "name": "belizehelp.org",
   "description": "",
   "license": "",
   "version": "1.0.0",
   "scripts": {
-    "build": "npm run build:css && remix build",
-    "build:css": "tailwindcss -i ./styles/app.css -o ./app/styles/app.css",
-    "dev": "concurrently \"npm run dev:css\" \"remix dev\"",
-    "dev:css": "tailwindcss -i ./styles/app.css -o ./app/styles/app.css --watch",
+    "build": "cross-env NODE_ENV=production npm run build:css && cross-env NODE_ENV=production remix build",
+    "build:css": "tailwindcss -m -i ./styles/app.css -o app/styles/app.css",
+    "dev": "cross-env NODE_ENV=development remix build && run-p dev:*",
+    "dev:css": "tailwindcss -w -i ./styles/app.css -o app/styles/app.css",
+    "dev:node": "cross-env NODE_ENV=development nodemon ./build/index.js",
+    "dev:remix": "cross-env NODE_ENV=development remix watch",
     "postinstall": "remix setup node",
-    "deploy": "flyctl deploy",
-    "start": "remix-serve build"
+    "start": "cross-env NODE_ENV=production node ./build/index.js"
   },
   "dependencies": {
     "@mailchimp/mailchimp_marketing": "^3.0.74",
-    "@prisma/client": "^3.6.0",
-    "@remix-run/react": "^1.0.6",
-    "@remix-run/serve": "^1.0.6",
+    "@remix-run/express": "^1.2.3",
+    "@remix-run/react": "^1.2.3",
+    "@supabase/supabase-js": "^1.30.7",
     "@xstate/inspect": "^0.5.2",
     "@xstate/react": "^1.6.3",
     "axios": "^0.25.0",
     "bcryptjs": "^2.4.3",
     "chalk": "^5.0.0",
     "clsx": "^1.1.1",
+    "compression": "^1.7.4",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.0",
+    "eslint": "^8.12.0",
+    "express": "^4.17.3",
+    "morgan": "^1.10.0",
+    "nanoid": "^3.3.2",
+    "nodemon": "^2.0.15",
+    "npm-run-all": "^4.1.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "remix": "^1.0.6",
+    "remix": "^1.2.3",
     "remix-auth": "^2.5.0-0",
     "xstate": "^4.26.1"
   },
   "devDependencies": {
-    "@remix-run/dev": "^1.0.6",
+    "@remix-run/dev": "^1.2.3",
+    "@remix-run/eslint-config": "^1.2.3",
     "@types/bcryptjs": "^2.4.2",
     "@types/mailchimp__mailchimp_marketing": "^3.0.3",
     "@types/node": "^17.0.0",
@@ -40,13 +51,12 @@
     "autoprefixer": "^10.4.0",
     "concurrently": "^6.4.0",
     "postcss": "^8.4.5",
-    "prisma": "^3.6.0",
     "tailwindcss": "^3.0.1",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.4"
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
   },
   "sideEffects": false
 }

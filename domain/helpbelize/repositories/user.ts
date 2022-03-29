@@ -1,5 +1,4 @@
 import chimp from "~/mailchimp.server";
-import { db } from "../../../app/utils/prisma.server";
 import User from "../entities/user";
 
 export default class UserRepository {
@@ -16,7 +15,8 @@ export default class UserRepository {
   }
 
   static async createUser(email: string, password: string) {
-    const user = await db.user.create({ data: { email, password } });
+    // const user = await db.user.create({ data: { email, password } });
+    const user = {} as any;
 
     return new User({
       ...user,
