@@ -1,26 +1,34 @@
+import { supabase } from "~/config/index.server";
 import chimp from "~/mailchimp.server";
 import User from "../entities/user";
 
 export default class UserRepository {
-  static async findByEmail(email: string) {
-    const user = await db.user.findFirst({ where: { email } });
-
-    if (!user) {
-      throw new Error("User does not exist");
+  static buildUser(data: any) {
+    if (!data || typeof data === "undefined") {
+      return null;
     }
 
     return new User({
-      ...user,
+      email: data?.email,
+      id: data?.id,
+      name: data?.name,
     });
   }
 
-  static async createUser(email: string, password: string) {
-    // const user = await db.user.create({ data: { email, password } });
-    const user = {} as any;
+  static async findByEmail(email: string) {
+    const user = await supabase.from("users").select("*").eq("email", email);
 
-    return new User({
-      ...user,
-    });
+    return this.buildUser(user);
+  }
+
+  static async createUser(email: string, password: string) {
+    // TODO: We need to use this for authentication stuff
+    const user = await supabase.auth.signUp({ email, password });
+    const userResult = await supabase
+      .from("user")
+      .upsert({ name: "New User", email });
+
+    return this.buildUser(userResult.body?.[0]);
   }
 
   static async subscribeToNewsletter(email: string) {

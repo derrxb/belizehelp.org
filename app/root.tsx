@@ -44,7 +44,7 @@ export default function App() {
   const data = useLoaderData() as UserSession;
 
   return (
-    <Document>
+    <Document title="BelizeHelp.org | Find and Help Belizeans in Need">
       <Layout loaderData={data}>
         <Outlet />
       </Layout>

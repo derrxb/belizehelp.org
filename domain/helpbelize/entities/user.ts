@@ -1,17 +1,18 @@
-import { User as UserModel } from "@prisma/client";
-import bcrypt from "bcryptjs";
+type UserModel = {
+  email: string;
+  id: number;
+  name: string;
+};
 
 export default class User {
   private email: UserModel["email"];
   private id: UserModel["id"];
   private name: UserModel["name"];
-  private password: UserModel["password"];
 
   constructor(props: UserModel) {
     this.email = props.email;
     this.id = props.id;
     this.name = props.name;
-    this.password = props.password;
   }
 
   get = () => {
@@ -20,15 +21,5 @@ export default class User {
       email: this.email,
       name: this.name,
     };
-  };
-
-  isValidPassword = async (password: string) => {
-    const result = await bcrypt.compare(password, this.password);
-
-    if (!result) {
-      throw new Error("Password and email do not match");
-    }
-
-    return true;
   };
 }
